@@ -48,12 +48,8 @@ def add_and_push(path, version, model, description, is_model=False):
 
     # DVC and Git operations
     run_command(f"dvc add {path}")
-    run_command(f"git add {model}.dvc")
-    run_command(f"git commit -m '{description}'")
-    run_command(f"dvc push {path}")
-    run_command(f"git push")
-    md5 = get_md5_from_dvc(f"{model}.dvc")
 
+    md5 = get_md5_from_dvc(f"{model}.dvc")
     # Update registry
     entry = {
         "md5": md5,
@@ -63,6 +59,11 @@ def add_and_push(path, version, model, description, is_model=False):
     registry.setdefault(model, []).append(entry)
     save_registry(registry)
     print(f"{'Model' if is_model else 'File/Folder'} '{model}' added with version {version}.")
+
+    run_command(f"git add {model}.dvc model_registry.json")
+    run_command(f"git commit -m '{description}'")
+    run_command(f"dvc push {path}")
+    run_command(f"git push")
 
 def switch_version(name, version, pull=False):
     registry = load_registry()
