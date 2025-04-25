@@ -1,0 +1,24 @@
+{
+    "test": [
+        {
+            "md5": "28be11aa6f8eccab67bf329f39159af8.dir",
+            "description": "add sample to test model",
+            "version": "v1.0.0"
+        },
+        {
+            "md5": "440fe34566bddd918faf64f6ec841b21.dir",
+            "description": "add new sample to test model",
+            "version": "v2.0.0"
+        },
+        {
+            "md5": "77e35b7f28413ec14c339c997523c7db.dir",
+            "description": "add new sample to test model on file sampleTest2.txt",
+            "version": "v3.0.0"
+        },
+        {
+            "md5": "03ecbd200291467714f70bc27a670412.dir",
+            "description": "add new sampledata3.txt",
+            "version": "v3.1.0"
+        }
+    ]
+}
